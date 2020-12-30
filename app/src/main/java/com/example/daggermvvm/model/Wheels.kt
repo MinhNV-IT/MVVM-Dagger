@@ -1,10 +1,11 @@
 package com.example.daggermvvm.model
 
-import javax.inject.Inject
-
 class Wheels {
-    @Inject
-    constructor() {
+    var rims: Rims
+    var tires: Tires
 
+    constructor(rims: Rims, tires: Tires) {
+        this.rims = rims
+        this.tires = tires
     }
 }

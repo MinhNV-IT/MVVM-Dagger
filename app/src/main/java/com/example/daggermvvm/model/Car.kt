@@ -3,16 +3,23 @@ package com.example.daggermvvm.model
 import javax.inject.Inject
 
 class Car {
-    var wheels: Wheels
+    @Inject
+    lateinit var wheels: Wheels
     var engine: Engine
 
     @Inject
-    constructor(wheels: Wheels, engine: Engine) {
-        this.wheels = wheels
+    constructor(engine: Engine) {
+        // this.wheels = wheels
         this.engine = engine
     }
 
+    @Inject
+    fun providesCarToRemote(remote: Remote) {
+        remote.providesCar(this)
+    }
+
     fun start() {
+        println("wheels :$wheels")
         engine.start()
         println("driving....")
     }

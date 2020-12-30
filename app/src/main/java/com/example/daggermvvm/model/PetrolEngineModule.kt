@@ -1,11 +1,19 @@
 package com.example.daggermvvm.model
 
-import dagger.Binds
 import dagger.Module
+import dagger.Provides
 
 
 @Module
-abstract class PetrolEngineModule {
-    @Binds
-    abstract fun providesPetrolEngine(petrolEngine: PetrolEngine): Engine
+class PetrolEngineModule {
+    var powerCapacity: Int = 0
+
+    constructor(powerCapacity: Int) {
+        this.powerCapacity = powerCapacity
+    }
+
+    @Provides
+    fun providesPetrolEngine(): Engine {
+        return PetrolEngine(powerCapacity)
+    }
 }
