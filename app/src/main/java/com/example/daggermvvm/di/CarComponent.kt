@@ -10,4 +10,13 @@ import dagger.Component
 interface CarComponent {
     fun getCar(): Car
     fun inject(mainActivity: MainActivity)
+
+    //@Component.Builder
+    @Component.Builder
+    interface Builder {
+
+    }
 }
+
+
+
